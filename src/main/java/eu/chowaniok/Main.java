@@ -6,6 +6,8 @@ package eu.chowaniok;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
@@ -15,7 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Configuration
 @ComponentScan
 @Controller
-public class Main {
+public class Main extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Main.class);
+    }
 
     @RequestMapping("/")
     public String home() {
