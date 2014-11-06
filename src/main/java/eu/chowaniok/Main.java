@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Main extends SpringBootServletInitializer {
 
-    @Autowired
-    protected JdbcTemplate jdbc;
+//    @Autowired
+//    protected JdbcTemplate jdbc;
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -36,10 +36,10 @@ public class Main extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
-        Main m = new Main();
-        m.jdbc.execute("drop table pings if exists");
-        m.jdbc.execute("create table pings(" +
-            "id serial, year INT , month INT , day INT , hour INT , minute INT )");
+//        Main m = new Main();
+//        m.jdbc.execute("drop table pings if exists");
+//        m.jdbc.execute("create table pings(" +
+//            "id serial, year INT , month INT , day INT , hour INT , minute INT )");
 
 
     }

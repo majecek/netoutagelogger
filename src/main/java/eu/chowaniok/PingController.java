@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * Created by marek on 06/11/14.
  */
 @RestController
+@RequestMapping("ping")
 public class PingController {
 
     private static final String template = "Hello, %s!";
