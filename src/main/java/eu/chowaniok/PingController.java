@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicLong;
  * Created by marek on 06/11/14.
  */
 @RestController
-@RequestMapping("ping")
 public class PingController {
 
     private static final String template = "Hello, %s!";
@@ -24,7 +23,7 @@ public class PingController {
     @RequestMapping("/ping")
     public void savePing() {
 
-
+        System.out.println("SAVING PING !!!!!!!!!!!");
 
         Calendar cal = Calendar.getInstance();
         Ping ping = new Ping(0, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE));
