@@ -30,6 +30,8 @@ public class PingController {
         Calendar cal = Calendar.getInstance();
         DateTime dt = new DateTime();
         DateTimeZone zone = DateTimeZone.forID("Europe/Prague");
+        System.out.println(dt);
+        System.out.println(zone);
 
         Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfHour());
 
