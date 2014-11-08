@@ -1,6 +1,7 @@
 package eu.chowaniok;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,7 @@ public class PingController {
 
         Calendar cal = Calendar.getInstance();
         DateTime dt = new DateTime();
+        DateTimeZone zone = DateTimeZone.forID("Europe/Prague");
 
         Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfDay());
 
