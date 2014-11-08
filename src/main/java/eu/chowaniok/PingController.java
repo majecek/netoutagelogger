@@ -28,10 +28,10 @@ public class PingController {
         System.out.println("SAVING PING !!!!!!!!!!!");
 
         Calendar cal = Calendar.getInstance();
-        DateTime dt = new DateTime();
-        DateTimeZone zone = DateTimeZone.forID("Europe/Prague");
+        DateTime dt = new DateTime().withZone(DateTimeZone.forID("Europe/Prague"));
+//        DateTimeZone zone = DateTimeZone.forID("Europe/Prague");
         System.out.println(dt);
-        System.out.println(zone);
+//        System.out.println(zone);
 
         Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfHour());
 
