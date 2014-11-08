@@ -31,7 +31,7 @@ public class PingController {
         DateTime dt = new DateTime();
         DateTimeZone zone = DateTimeZone.forID("Europe/Prague");
 
-        Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfDay());
+        Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfHour());
 
         int saved = pingRepository.save(ping);
 
