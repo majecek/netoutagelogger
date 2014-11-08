@@ -1,5 +1,6 @@
 package eu.chowaniok;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,9 @@ public class PingController {
         System.out.println("SAVING PING !!!!!!!!!!!");
 
         Calendar cal = Calendar.getInstance();
-        Ping ping = new Ping(0, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE));
+        DateTime dt = new DateTime();
+
+        Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfDay());
 
         int saved = pingRepository.save(ping);
 
