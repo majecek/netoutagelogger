@@ -21,7 +21,12 @@ public class PingRepository {
 
 
     public List<Map<String, Object>> getPings() {
-        return jdbc.queryForList("select * from Pings", userMapper);
+        return jdbc.queryForList("select * from pings", new RowMapper<Ping>() {
+            public Ping mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Ping ping = new Ping(rs.getDouble("id"), rs.getInt("year"), rs.getInt("month"), rs.getInt("day"), rs.getInt("hour"), rs.getInt("minute"));
+                return ping;
+            }
+        });
     }
 
     public Ping getPing(long id) {
@@ -30,7 +35,7 @@ public class PingRepository {
 
     private static final RowMapper<Ping> userMapper = new RowMapper<Ping>() {
         public Ping mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Ping ping = new Ping(rs.getLong("id"), rs.getInt("year"), rs.getInt("month"), rs.getInt("day"), rs.getInt("hour"), rs.getInt("minute"));
+            Ping ping = new Ping(rs.getDouble("id"), rs.getInt("year"), rs.getInt("month"), rs.getInt("day"), rs.getInt("hour"), rs.getInt("minute"));
             return ping;
         }
     };

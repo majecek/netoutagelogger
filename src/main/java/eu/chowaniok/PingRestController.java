@@ -3,8 +3,10 @@ package eu.chowaniok;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,10 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * Created by marek on 06/11/14.
  */
 @RestController
-public class PingController {
-
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+public class PingRestController {
 
     @Autowired
     private PingRepository pingRepository;
@@ -24,21 +23,17 @@ public class PingController {
 
     @RequestMapping("/ping")
     public void savePing() {
-
-        System.out.println("SAVING PING !!!!!!!!!!!");
-
-        Calendar cal = Calendar.getInstance();
         DateTime dt = new DateTime().withZone(DateTimeZone.forID("Europe/Prague"));
-//        DateTimeZone zone = DateTimeZone.forID("Europe/Prague");
         System.out.println(dt);
-//        System.out.println(zone);
-
         Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfHour());
-
         int saved = pingRepository.save(ping);
-
-//        return null;
-//        return new Ping(counter.incrementAndGet(),
-//            String.format(template, name), year, month, day, hour, minute);
     }
+
+//    @RequestMapping("/")
+//    public ModelAndView getPings() {
+//        ModelMap model = new ModelMap();
+//        model.addAttribute("pings", pingRepository.getPings());
+//        model.addAttribute("pings2", "222");
+//        return new ModelAndView("overview", model);
+//    }
 }

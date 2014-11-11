@@ -29,19 +29,8 @@ public class Main extends SpringBootServletInitializer {
         return application.sources(Main.class);
     }
 
-    @RequestMapping("/")
-    public String home() {
-        return "home";
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
-//        Main m = new Main();
-//        m.jdbc.execute("drop table pings if exists");
-//        m.jdbc.execute("create table pings(" +
-//            "id serial, year INT , month INT , day INT , hour INT , minute INT )");
-
-
     }
 
 }
