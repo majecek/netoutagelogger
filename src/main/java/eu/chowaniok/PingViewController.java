@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class PingViewController {
 
     @RequestMapping("/")
-    public ModelAndView getPings() {
+    public ModelAndView getPingsView() {
         ModelMap model = new ModelMap();
-        //        model.addAttribute("pings", pingRepository.getPings());
-        model.addAttribute("pings2", "222");
+//                model.addAttribute("pings", pingRepository.getPings());
+        model.addAttribute("pings2", new String("2222"));
         return new ModelAndView("overview", model);
     }
 }

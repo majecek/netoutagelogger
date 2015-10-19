@@ -28,12 +28,4 @@ public class PingRestController {
         Ping ping = new Ping(0, dt.getYear(), dt.getMonthOfYear(), dt.getDayOfMonth(), dt.getHourOfDay(), dt.getMinuteOfHour());
         int saved = pingRepository.save(ping);
     }
-
-//    @RequestMapping("/")
-//    public ModelAndView getPings() {
-//        ModelMap model = new ModelMap();
-//        model.addAttribute("pings", pingRepository.getPings());
-//        model.addAttribute("pings2", "222");
-//        return new ModelAndView("overview", model);
-//    }
 }
